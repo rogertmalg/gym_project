@@ -1,5 +1,5 @@
 class Activity:
-    def __init__(self, name, instructor, room, capacity, date, time, active =True, id=None ):
+    def __init__(self, name, instructor, room, capacity, date, time, active, id=None ):
         self.name = name
         self.instructor = instructor
         self.room = room

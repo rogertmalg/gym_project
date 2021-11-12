@@ -9,13 +9,16 @@ import pdb
 # from models.instructor import Instructor
 # import repositories.instructor_repository as instructor_repository
 
-# from models.member import Member
-# import repositories.member_repository as member_repository
+from models.member import Member
+import repositories.member_repository as member_repository
 
 # activity_repository.delete_all()
 # booking_repository.delete_all()
 # instructor_repository.delete_all()
 # member_repository.delete_all()
+
+member_1 = Member("Jess", False, True)
+member_repository.save(member_1)
 
 
 pdb.set_trace()
