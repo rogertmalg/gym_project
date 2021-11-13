@@ -33,7 +33,8 @@ CREATE TABLE bookings (
     activity_id INT REFERENCES activities(id)
 );
 
-INSERT INTO instructors (name, bio) VALUES ('Hanna', 'I like the gym');
+-- INSERT INTO instructors (name, bio) VALUES ('Hanna', 'I like the gym');
 
-INSERT INTO activities(name, instructor_id, room, capacity, date, time, active)
-VALUES ('Yoga', 1, 'studio 03', 20, '2021-11-25', '11:00', True);
+-- INSERT INTO activities(name, instructor_id, room, capacity, date, time, active)
+-- VALUES ('Yoga', 1, 'studio 03', 20, '2021-11-25', '11:00', True);
+

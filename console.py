@@ -6,8 +6,8 @@ import pdb
 # from models.booking import Booking
 # import repositories.booking_repository as booking_repository
 
-# from models.instructor import Instructor
-# import repositories.instructor_repository as instructor_repository
+from models.instructor import Instructor
+import repositories.instructor_repository as instructor_repository
 
 from models.member import Member
 import repositories.member_repository as member_repository
@@ -17,17 +17,26 @@ import repositories.member_repository as member_repository
 # instructor_repository.delete_all()
 # member_repository.delete_all()
 
-member_1 = Member("Jess", False, True)
-member_repository.save(member_1)
+instructor_1 = Instructor("John", "I like lifiting weights")
+instructor_repository.save(instructor_1)
+instructor_2 = Instructor("Carla", "I like lifiting weights")
+instructor_repository.save(instructor_2)
+
+instructor_1.name = "Jessica"
+instructor_1.bio = "I like running"
+instructor_repository.update(instructor_1)
 
 
-member_1.name = "Jessica"
-member_1.premium = True
-member_repository.update(member_1)
+instructors = instructor_repository.select_all()
+for instructor in instructors:
+    print(instructor.__dict__)
 
-member_list = member_repository.select_all()
-for member in member_list:
-    print(member.__dict__)
+
+
+
+# 
+
+
 
 
 
