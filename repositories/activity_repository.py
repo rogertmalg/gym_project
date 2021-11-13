@@ -51,7 +51,7 @@ def update(activity):
 
 def select_members_in_activity(id):
     attending = []
-    sql = "SELECT member.* FROM members INNER JOIN bookings ON bookings.member_id = member.id WHERE bookings.activity_id = %s"
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
     values = [id]
     results = run_sql(sql, values)
     for result in results:

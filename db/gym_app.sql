@@ -29,8 +29,8 @@ CREATE TABLE activities (
 
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY, 
-    member_id INT REFERENCES members(id),
-    activity_id INT REFERENCES activities(id)
+    activity_id INT REFERENCES activities(id),
+    member_id INT REFERENCES members(id)
 );
 
 -- INSERT INTO instructors (name, bio) VALUES ('Hanna', 'I like the gym');
