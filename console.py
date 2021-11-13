@@ -21,4 +21,19 @@ member_1 = Member("Jess", False, True)
 member_repository.save(member_1)
 
 
+member_1.name = "Jessica"
+member_1.premium = True
+member_repository.update(member_1)
+
+member_list = member_repository.select_all()
+for member in member_list:
+    print(member.__dict__)
+
+
+
+
+
+
+
+
 pdb.set_trace()
