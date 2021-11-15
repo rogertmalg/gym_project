@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Members</h2>
+
+{% for member in all_members %}
+
+<section>
+    <p>{{ member.name }}</p>
+    <a href="/members/{{ member.id }}/edit">Edit</a>
+    <!-- add green circle to indicate member is active -->
+    <!-- add symbol to indicate member is premium -->
+    <form action="/members/{{ member.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endfor %}
+{% endblock %}
