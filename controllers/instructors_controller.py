@@ -36,8 +36,9 @@ def edit_instructor(id):
 def update_instructor(id):
     name = request.form["name"]
     active = request.form["active"]
-    instructor = Instructor(name, active)
+    instructor = Instructor(name, active, id)
     instructor_repository.update(instructor)
+    return redirect("/instructors")
 
 # Delete 
 @instructors_blueprint.route("/instructors/<id>/delete", methods=["POST"])

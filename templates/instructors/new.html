@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
-Form to create new instructor goes here 
+<h2>Add a New Instructor/h2>
+
+<form action="/instructors" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="active">Active:</label>
+        <select name="active" id="active">
+            <option value="True" >Active</option>                    
+            <option value="False">Not Active</option> 
+          </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
 
 {% endblock %}

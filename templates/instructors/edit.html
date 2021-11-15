@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update instructor</h2>
+
+<form action="/instructors/{{ instructor.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ instructor.name }}">
+    </div>
+    <div>
+        <label for="active">Active:</label>
+        <select name="active" id="active" value = "{{ instructor.active }}">
+            <option value="True" >Active</option>                    
+            <option value="False">Not Active</option> 
+          </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}
