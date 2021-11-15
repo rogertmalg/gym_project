@@ -2,8 +2,8 @@ from db.run_sql import run_sql
 from models.instructor import Instructor
 
 def save(instructor):
-    sql = "INSERT INTO instructors (name, bio) VALUES (%s, %s) RETURNING id"
-    values = [instructor.name, instructor.bio]
+    sql = "INSERT INTO instructors (name, active) VALUES (%s, %s) RETURNING id"
+    values = [instructor.name, instructor.active]
     results = run_sql(sql, values)
     id = results[0]['id']
     instructor.id = id
@@ -14,7 +14,7 @@ def select_all():
     sql = "SELECT * FROM instructors"
     results = run_sql(sql)
     for result in results:
-        instructor = Instructor(result["name"], result["bio"], result["id"])
+        instructor = Instructor(result["name"], result["active"], result["id"])
         instructors.append(instructor)
     return instructors
 
@@ -23,7 +23,7 @@ def select(id):
     sql = "SELECT * FROM instructors WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    instructor = Instructor(result["name"], result["bio"], result["id"])
+    instructor = Instructor(result["name"], result["active"], result["id"])
     return instructor
 
 
@@ -39,6 +39,6 @@ def delete(id):
 
 
 def update(instructor):
-    sql = "UPDATE instructors SET (name, bio) = (%s, %s) WHERE id = %s"
-    values = [instructor.name, instructor.bio, instructor.id]
+    sql = "UPDATE instructors SET (name, active) = (%s, %s) WHERE id = %s"
+    values = [instructor.name, instructor.active, instructor.id]
     run_sql(sql, values)

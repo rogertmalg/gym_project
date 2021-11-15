@@ -13,7 +13,7 @@ CREATE TABLE members (
 CREATE TABLE instructors (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    bio TEXT
+    active BOOLEAN
 );
 
 CREATE TABLE activities ( 

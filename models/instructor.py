@@ -1,5 +1,5 @@
 class Instructor:
-    def __init__(self, name, bio, id = None):
+    def __init__(self, name, active, id = None):
         self.name = name
-        self.bio = bio 
+        self.active = active 
         self.id = id 

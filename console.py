@@ -24,10 +24,10 @@ member_repository.save(member_1)
 member_2 = Member("Linda", True, True)
 member_repository.save(member_2)
 
-instructor_1 = Instructor("John", "I like lifiting weights")
+instructor_1 = Instructor("John", True)
 instructor_repository.save(instructor_1)
 
-instructor_2 = Instructor("Carla", "I like lifiting weights")
+instructor_2 = Instructor("Carla", True)
 instructor_repository.save(instructor_2)
 
 activity_1 = Activity('Yoga', instructor_1, 'studio 03', 20, '2021-11-25', '11:00', True)
