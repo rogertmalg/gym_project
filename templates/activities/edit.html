@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update Class</h2>
+
+<form action="/activities/{{ activity.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value ="{{ activity.name }}">
+    </div>
+    <div>
+        <label for="instructor">Instructor:</label>
+        <select name="instructor_id" id="instructor">
+            {% for instructor in instructors %}
+            <option value="{{ instructor.id }}" {% if instructor.id == activity.instructor.id %} selected {% endif %}>
+                {{ instructor.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="room">Room:</label>
+        <input type="text" id="room" name="room" value = "{{ activity.room }}">
+    </div>
+    <div>
+        <label for="capacity">Capacity:</label>
+        <input type="number" id="capacity" name="capacity" value = "{{ activity.capacity }}">
+    </div>
+    <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" value = "{{ activity.date }}">
+    </div>
+    <div>
+        <label for="time">Room:</label>
+        <input type="time" id="time" name="time" value = "{{ activity.time }}">
+    </div>
+    <div>
+        <label for="active">Active:</label>
+        <select name="active" id="active" value = "{{ activity.active }}">
+            <option value="True" >Active</option>                    
+            <option value="False">Not Active</option> 
+          </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

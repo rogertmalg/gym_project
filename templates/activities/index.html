@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Classes</h2>
+<!-- find a way of filtering classes by name, date, instructor -->
+
+{% for activity in all_activities %}
+
+<section>
+    <h3>{{ activity.name }}</h3>
+    <p>Instructor : {{ activity.instructor.name }}</p>
+    <p>{{ activity.room }}</p>
+    <p>{{ activity.date }}</p>
+    <p>{{ activity.time }}</p>
+
+    <a href="/activities/{{ activity.id }}/edit">Edit</a>
+    <!-- add green circle to indicate activity is active, deactivate if full? -->
+    <!-- add symbol to indicate activity is peak/off peak -->
+    <form action="/activities/{{ activity.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+    <a href="/activities/{{ activity.id }}">Members Attending</a>
+</section>
+
+{% endfor %}
+{% endblock %}
