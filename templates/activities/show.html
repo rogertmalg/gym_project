@@ -3,10 +3,14 @@
 
 <h2>{{ activity.name }}</h2>
 <p>Instructor: {{ activity.instructor.name }}</p>
+<p>Room: {{ activity.room }}</p>
+<p>Capacity: {{ activity.capacity }}</p>
+<p>Date: {{ activity.date }}</p>
+<p>Time: {{ activity.time}}</p>
 
-<h3>Members attending</h3>
+<h3>Members attending: {{ members|length }}</h3>
 <ul>
-    {% for member in Members %}
+    {% for member in members %}
     <li>{{ member.name }}</li>
     {% endfor %}
 </ul>

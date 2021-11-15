@@ -12,7 +12,7 @@ def activities():
     all_activities = activity_repository.select_all()
     return render_template("activities/index.html", all_activities = all_activities)
 
-# Show - to be done 
+# Show 
 @activities_blueprint.route("/activities/<id>")
 def show_activity(id):
     members = activity_repository.select_members_in_activity(id)

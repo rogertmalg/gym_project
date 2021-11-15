@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>All Bookings</h2>
+<!-- find a way to filter by member, activity, date, etc -->
+
+{% for booking in all_bookings %}
+
+<section>
+    <p>{{ booking.activity.name }} - {{ booking.member.name }}</p>
+    <a href="/bookings/{{ booking.id }}/edit">Edit</a>
+    
+    <form action="/bookings/{{ booking.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endfor %}
+{% endblock %}

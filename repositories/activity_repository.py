@@ -55,6 +55,6 @@ def select_members_in_activity(id):
     values = [id]
     results = run_sql(sql, values)
     for result in results:
-        member = Member(result["name"], result["premium"], result["active"], result["id"])
+        member = Member(result["name"], result["premium"], result["active"])
         attending.append(member)
     return attending
