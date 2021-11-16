@@ -4,13 +4,16 @@
 <h2>New Booking</h2>
 
 <form action="/bookings" method="POST">
+
     <div>
         <label for="activity">Class:</label>
         <select name="activity_id" id="activity">
             {% for activity in activities %}
+            {% if activity.active == True %}
             <option value="{{ activity.id }}">
-                {{ activity.name }}
+                {{ activity.name }} - {{activity.date}} - {{activity.time}}
             </option>
+            {% endif %}
             {% endfor %}
         </select>
     </div>
@@ -25,8 +28,9 @@
         </select>
     </div>
     <div>
-        <input type="submit">
+        <input type="submit" value="Book">
     </div>
 </form>
+
 
 {% endblock %}

@@ -2,26 +2,36 @@
 {% block content %}
 <h2>Classes Today</h2>
 
-{% for activity in activities %}
-<!-- if activity.date == date.today() -->
 
-<section>
+<div class="box">
+{% for activity in activities %}
+{% if activity.date == datetime.date.today() %}
+
+
+<section class="activity">
     <h3>{{ activity.name }}</h3>
+    {% if activity.active == False %}  
+        <p style="color:red">This class is now full</p>
+    {% endif %}
     <p>Instructor : {{ activity.instructor.name }}</p>
     <p>{{ activity.room }}</p>
     <p>{{ activity.date }}</p>
     <p>{{ activity.time }}</p>
+    {% if activity.time < datetime.time(10,00) or activity.time > datetime.time(18,00) %}
+        <p style="color:red">Peak</p>
+    {% else %}
+        <p style="color:green"> Off Peak</p>
+    {% endif %} 
 
+    <a href="/activities/{{ activity.id }}">Details</a><br>
     <a href="/activities/{{ activity.id }}/edit">Edit</a>
-    <!-- add green circle to indicate activity is active, deactivate if full? -->
-    <!-- add symbol to indicate activity is peak/off peak -->
-    <form action="/activities/{{ activity.id }}/delete" method="POST">
-        <input type="submit" value="Delete">
-    </form>
-    <a href="/activities/{{ activity.id }}">Members Attending</a>
+        <form action="/activities/{{ activity.id }}/delete" method="POST">
+            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+        </form>
 </section>
 
-<!-- endif -->
-{% endfor %}
 
+{% endif %}
+{% endfor %}
+</div>
 {% endblock %}

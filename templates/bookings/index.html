@@ -7,7 +7,7 @@
 {% for booking in all_bookings %}
 
 <section>
-    <p>{{ booking.activity.name }} - {{ booking.member.name }}</p>
+    <p>{{ booking.member.name }} - {{ booking.activity.name }} - {{booking.activity.date }}</p>
     <a href="/bookings/{{ booking.id }}/edit">Edit</a>
     
     <form action="/bookings/{{ booking.id }}/delete" method="POST">

@@ -1,5 +1,5 @@
 from flask import Blueprint, Flask, redirect, render_template, request 
-
+import datetime
 from models.booking import Booking
 import repositories.activity_repository as activity_repository
 import repositories.member_repository as member_repository
@@ -23,13 +23,24 @@ def new_booking():
 
 # create - post 
 @bookings_blueprint.route("/bookings", methods=["POST"])
-def create_activity():
+def create_booking():
     activity_id = request.form["activity_id"]
     member_id = request.form["member_id"]
     activity = activity_repository.select(activity_id)
     member = member_repository.select(member_id)
-    new_booking = Booking(activity, member)
-    booking_repository.save(new_booking)
+    attending = activity_repository.select_members_in_activity(activity.id)
+    if member.premium == True: 
+        new_booking = Booking(activity, member)
+        booking_repository.save(new_booking)
+        if activity.capacity -1 == len(attending):
+            activity.active = False
+            activity_repository.update(activity)
+    elif activity.time > datetime.time(10,00) and activity.time < datetime.time(18,00):
+        new_booking = Booking(activity, member)
+        booking_repository.save(new_booking)
+        if activity.capacity -1 == len(attending):
+            activity.active = False
+            activity_repository.update(activity)
     return redirect("/bookings")
 
 # Edit
@@ -54,5 +65,11 @@ def update_booking(id):
 # Delete 
 @bookings_blueprint.route("/bookings/<id>/delete", methods=["POST"])
 def delete_booking(id):
+    booking = booking_repository.select(id)
+    activity = activity_repository.select(booking.activity.id)
+    attending = activity_repository.select_members_in_activity(activity.id)
     booking_repository.delete(id)
+    if activity.capacity > len(attending) -1:
+            activity.active = True
+            activity_repository.update(activity)
     return redirect("/bookings")

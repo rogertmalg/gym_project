@@ -1,0 +1,50 @@
+body{
+    font-family: "Helvetica", arial, sans-serif; font-size: 16px;
+  }
+  .gymlogo {
+      background-image: url(static/images/GymLogo.jpeg);
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;    
+  }
+
+  .gymlogo >img {
+      margin-bottom: 0;
+  }
+
+  h1 {
+    color: orangered;
+  }
+
+  .box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  h2 {
+      text-align: center;
+  }
+
+  .activity {
+    border: 1px solid #ccc;
+    width: 290px;
+    min-height: 68px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    line-height: 18px;
+    margin: 10px;
+    align-items: center;
+  }
+
+  input, select, button {
+    font-size: 100%;
+    width : 50%;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: content-box;
+  }

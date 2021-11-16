@@ -1,4 +1,5 @@
 from flask import Blueprint, Flask, redirect, render_template, request 
+import datetime 
 
 from models.activity import Activity
 import repositories.activity_repository as activity_repository
@@ -10,7 +11,7 @@ activities_blueprint = Blueprint("activities", __name__)
 @activities_blueprint.route("/activities", methods = ["GET"])
 def activities():
     all_activities = activity_repository.select_all()
-    return render_template("activities/index.html", all_activities = all_activities)
+    return render_template("activities/index.html", all_activities = all_activities, datetime = datetime)
 
 # Show 
 @activities_blueprint.route("/activities/<id>", methods = ["GET"])

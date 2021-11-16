@@ -11,8 +11,7 @@ def save(booking):
     results = run_sql(sql, values)
     id = results[0]['id']
     booking.id = id
-    # if  booking.activity.capacity == len(activity_repository.select_members_in_activity(booking.activity.id)):
-    #     booking.activity.active = False 
+    
 
 
 def select_all():

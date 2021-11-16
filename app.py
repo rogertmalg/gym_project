@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import datetime
 from controllers.instructors_controller import instructors_blueprint
 from controllers.members_controller import members_blueprint
 from controllers.activities_controller import activities_blueprint
@@ -15,7 +16,7 @@ app.register_blueprint(bookings_blueprint)
 @app.route("/")
 def main():
     activities = activity_repository.select_all()
-    return render_template('index.html', activities = activities)
+    return render_template('index.html', activities = activities, datetime=datetime)
 
 if __name__ == '__main__':
     app.run()
