@@ -8,14 +8,14 @@ import repositories.booking_repository as booking_repository
 bookings_blueprint = Blueprint("bookings", __name__)
 
 # index
-@bookings_blueprint.route("/bookings")
+@bookings_blueprint.route("/bookings", methods = ["GET"])
 def bookings():
     all_bookings = booking_repository.select_all()
     return render_template("bookings/index.html", all_bookings = all_bookings)
 
 
 # new - form
-@bookings_blueprint.route("/bookings/new")
+@bookings_blueprint.route("/bookings/new", methods = ["GET"])
 def new_booking():
     activities = activity_repository.select_all()
     members = member_repository.select_all()
@@ -33,7 +33,7 @@ def create_activity():
     return redirect("/bookings")
 
 # Edit
-@bookings_blueprint.route("/bookings/<id>/edit")
+@bookings_blueprint.route("/bookings/<id>/edit", methods = ["GET"])
 def edit_booking(id):
     booking = booking_repository.select(id)
     activities = activity_repository.select_all()

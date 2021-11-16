@@ -3,6 +3,7 @@ from controllers.instructors_controller import instructors_blueprint
 from controllers.members_controller import members_blueprint
 from controllers.activities_controller import activities_blueprint
 from controllers.bookings_controller import bookings_blueprint
+import repositories.activity_repository as activity_repository
 
 app = Flask(__name__)
 
@@ -13,7 +14,8 @@ app.register_blueprint(bookings_blueprint)
 
 @app.route("/")
 def main():
-    return render_template('index.html')
+    activities = activity_repository.select_all()
+    return render_template('index.html', activities = activities)
 
 if __name__ == '__main__':
     app.run()

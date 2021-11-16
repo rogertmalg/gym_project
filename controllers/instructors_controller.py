@@ -6,13 +6,13 @@ import repositories.instructor_repository as instructor_repository
 instructors_blueprint = Blueprint("instructors", __name__)
 
 # index
-@instructors_blueprint.route("/instructors")
+@instructors_blueprint.route("/instructors", methods = ["GET"])
 def instructors():
     all_instructors = instructor_repository.select_all()
     return render_template("instructors/index.html", all_instructors = all_instructors)
 
 # new - form
-@instructors_blueprint.route("/instructors/new")
+@instructors_blueprint.route("/instructors/new", methods = ["GET"])
 def new_instructor():
     return render_template("instructors/new.html")
 
@@ -26,7 +26,7 @@ def create_instructor():
     return redirect("/instructors")
 
 # Edit
-@instructors_blueprint.route("/instructors/<id>/edit")
+@instructors_blueprint.route("/instructors/<id>/edit", methods = ["GET"])
 def edit_instructor(id):
     instructor = instructor_repository.select(id)
     return render_template("instructors/edit.html", instructor = instructor)

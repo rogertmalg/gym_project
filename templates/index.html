@@ -1,6 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
+<h2>Classes Today</h2>
 
-This will be the home page, maybe classes happening that day can be displayed. 
+{% for activity in activities %}
+<!-- if activity.date == date.today() -->
+
+<section>
+    <h3>{{ activity.name }}</h3>
+    <p>Instructor : {{ activity.instructor.name }}</p>
+    <p>{{ activity.room }}</p>
+    <p>{{ activity.date }}</p>
+    <p>{{ activity.time }}</p>
+
+    <a href="/activities/{{ activity.id }}/edit">Edit</a>
+    <!-- add green circle to indicate activity is active, deactivate if full? -->
+    <!-- add symbol to indicate activity is peak/off peak -->
+    <form action="/activities/{{ activity.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+    <a href="/activities/{{ activity.id }}">Members Attending</a>
+</section>
+
+<!-- endif -->
+{% endfor %}
 
 {% endblock %}

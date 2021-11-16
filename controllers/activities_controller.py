@@ -7,20 +7,20 @@ import repositories.instructor_repository as instructor_repository
 activities_blueprint = Blueprint("activities", __name__)
 
 # index
-@activities_blueprint.route("/activities")
+@activities_blueprint.route("/activities", methods = ["GET"])
 def activities():
     all_activities = activity_repository.select_all()
     return render_template("activities/index.html", all_activities = all_activities)
 
 # Show 
-@activities_blueprint.route("/activities/<id>")
+@activities_blueprint.route("/activities/<id>", methods = ["GET"])
 def show_activity(id):
     members = activity_repository.select_members_in_activity(id)
     activity = activity_repository.select(id)
     return render_template("activities/show.html", members=members, activity=activity)
 
 # new - form
-@activities_blueprint.route("/activities/new")
+@activities_blueprint.route("/activities/new", methods = ["GET"])
 def new_activity():
     instructors = instructor_repository.select_all()
     return render_template("activities/new.html", instructors = instructors)
@@ -41,7 +41,7 @@ def create_activity():
     return redirect("/activities")
 
 # Edit
-@activities_blueprint.route("/activities/<id>/edit")
+@activities_blueprint.route("/activities/<id>/edit", methods = ["GET"])
 def edit_activity(id):
     activity = activity_repository.select(id)
     instructors = instructor_repository.select_all()

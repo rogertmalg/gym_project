@@ -6,13 +6,13 @@ import repositories.member_repository as member_repository
 members_blueprint = Blueprint("members", __name__)
 
 # index
-@members_blueprint.route("/members")
+@members_blueprint.route("/members", methods = ["GET"])
 def members():
     all_members = member_repository.select_all()
     return render_template("members/index.html", all_members = all_members)
 
 # new - form
-@members_blueprint.route("/members/new")
+@members_blueprint.route("/members/new", methods = ["GET"])
 def new_member():
     return render_template("members/new.html")
 
@@ -27,7 +27,7 @@ def create_member():
     return redirect("/members")
 
 # Edit
-@members_blueprint.route("/members/<id>/edit")
+@members_blueprint.route("/members/<id>/edit", methods = ["GET"])
 def edit_member(id):
     member = member_repository.select(id)
     return render_template("members/edit.html", member = member)
