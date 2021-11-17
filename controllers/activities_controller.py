@@ -18,7 +18,7 @@ def activities():
 def show_activity(id):
     members = activity_repository.select_members_in_activity(id)
     activity = activity_repository.select(id)
-    return render_template("activities/show.html", members=members, activity=activity)
+    return render_template("activities/show.html", members=members, activity=activity, datetime = datetime)
 
 # new - form
 @activities_blueprint.route("/activities/new", methods = ["GET"])

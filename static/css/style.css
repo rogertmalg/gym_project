@@ -18,7 +18,7 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
-    margin: 0;
+    margin: -8px;
     background-image: linear-gradient( to right, white , orangered);
 }
   .gymlogo {
@@ -34,9 +34,11 @@ header {
       height: 90px;
   }
 
-  h1 {
+  h1, h2 {
     color: orangered;
   }
+
+  
 
   .box{
     display: flex;
@@ -59,7 +61,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     flex-flow: column;
-    line-height: 18px;
+    line-height: 13px;
     margin: 10px;
     align-items: center;
     background-image: linear-gradient( white , orangered);
@@ -67,7 +69,7 @@ header {
   }
 
   input, select, button {
-    font-size: 100%;
+    font-size: 80%;
     width : 50%;
     padding: 10px;
     margin: 10px;
@@ -98,7 +100,7 @@ header {
     padding-right: 10px;
     list-style: none;
     color: white;
-    font-family: "Helvetica", arial, sans-serif; font-size: 14px;
+    font-family: "Helvetica", arial, sans-serif; font-size: 15px;
   }
 
   .bar ul{
@@ -124,7 +126,7 @@ header {
         display: flex;
         flex-wrap: wrap;
         flex-flow: column;
-        line-height: 18px;
+        line-height: 13px;
         margin: 10px;
         align-items: center;
         background-image: linear-gradient( white , orangered);
@@ -134,15 +136,37 @@ header {
 
   .index {
     border: 1px solid rgb(119, 87, 75);
-    width: 150px;
+    width: 210px;
     min-height: 68px;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
     flex-flow: column;
-    line-height: 18px;
+    line-height: 13px;
     margin: 10px;
     align-items: center;
     background-image: linear-gradient( white , orangered);
     border-radius: 10%;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.activity > ul >li {
+    list-style: none;
+    padding: 5px;
+    justify-self: center;
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    background-color: orangered;
+    color: white;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }

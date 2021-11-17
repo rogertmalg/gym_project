@@ -7,8 +7,11 @@
 
 <section class="index">
     <p>{{ member.name }}</p>
-    <p>Premium Member: {{ member.premium }}</p>
-
+    {% if member.premium == True %}
+    <p>Premium Member</p>
+    {% else %}
+    <p>Standard Member</p>
+    {% endif %}
     <a href="/members/{{ member.id }}/edit">Edit</a>
     <form action="/members/{{ member.id }}/delete" method="POST">
         <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>

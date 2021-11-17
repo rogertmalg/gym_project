@@ -1,12 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>{{ activity.name }}</h2>
+<h2>Class Details</h2>
+
+<div class="box">
+
+<div class="activity">
+<h3>{{ activity.name }}</h3>
 <p>Instructor: {{ activity.instructor.name }}</p>
 <p>Room: {{ activity.room }}</p>
 <p>Capacity: {{ activity.capacity }}</p>
 <p>Date: {{ activity.date }}</p>
 <p>Time: {{ activity.time}}</p>
+{% if activity.time < datetime.time(10,00) or activity.time > datetime.time(18,00) %}
+        <p style="color:red">Peak</p>
+    {% else %}
+        <p style="color:green"> Off Peak</p>
+    {% endif %} 
 
 <h3>Members attending: {{ members|count }}</h3>
 <ul>
@@ -14,5 +24,5 @@
     <li>{{ member.name }}</li>
     {% endfor %}
 </ul>
-
+</div>
 {% endblock %}

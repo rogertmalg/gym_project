@@ -2,8 +2,9 @@
 {% block content %}
 
 <h2>Edit Booking</h2>
+<div class= "boxform">
 
-<form action="/bookings/{{ booking.id }}" method="POST">
+<form class="new" action="/bookings/{{ booking.id }}" method="POST">
     <div>
         <label for="activity">Class:</label>
         <select name="activity_id" id="activity">
@@ -28,5 +29,6 @@
         <input type="submit">
     </div>
 </form>
+</div>
 
 {% endblock %}

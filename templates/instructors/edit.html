@@ -3,7 +3,9 @@
 
 <h2>Update instructor</h2>
 
-<form action="/instructors/{{ instructor.id }}" method="POST">
+<div class= "boxform">
+
+<form class="new" action="/instructors/{{ instructor.id }}" method="POST">
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="{{ instructor.name }}">
@@ -19,5 +21,7 @@
         <input type="submit">
     </div>
 </form>
+
+</div>
 
 {% endblock %}

@@ -3,7 +3,9 @@
 
 <h2>Update Class</h2>
 
-<form action="/activities/{{ activity.id }}" method="POST">
+<div class= "boxform">
+
+<form class="new" action="/activities/{{ activity.id }}" method="POST">
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value ="{{ activity.name }}">
@@ -45,5 +47,5 @@
         <input type="submit">
     </div>
 </form>
-
+</div>
 {% endblock %}

@@ -9,9 +9,10 @@
 
 
 <section class="activity">
+    {% if activity.active == False %} 
+    <h3 style="color:red">{{ activity.name }}: Full</h3> 
+    {% else %}
     <h3>{{ activity.name }}</h3>
-    {% if activity.active == False %}  
-        <p style="color:red">This class is now full</p>
     {% endif %}
     <p>Instructor : {{ activity.instructor.name }}</p>
     <p>{{ activity.room }}</p>
