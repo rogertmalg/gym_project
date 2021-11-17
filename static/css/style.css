@@ -2,16 +2,6 @@ body{
     font-family: "Helvetica", arial, sans-serif; font-size: 16px;
   }
 
-  /* nav {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 1090px;
-    height: 170px;
-    
-    justify-content: flex-end;
-    align-items: center;
-  } */
-
 header {
     display: flex;
     flex-direction: row;
