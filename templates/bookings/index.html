@@ -2,18 +2,21 @@
 {% block content %}
 
 <h2>All Bookings</h2>
-<!-- find a way to filter by member, activity, date, etc -->
 
+<div class="box">
 {% for booking in all_bookings %}
 
-<section>
-    <p>{{ booking.member.name }} - {{ booking.activity.name }} - {{booking.activity.date }}</p>
+<section class="index">
+    <p>{{ booking.activity.name }} - {{booking.activity.date }}</p>
+    <p>{{ booking.activity.time }} </p>
+    <p>{{ booking.member.name }} </p>
     <a href="/bookings/{{ booking.id }}/edit">Edit</a>
     
     <form action="/bookings/{{ booking.id }}/delete" method="POST">
-        <input type="submit" value="Delete">
+        <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
     </form>
 </section>
 
 {% endfor %}
+</div>
 {% endblock %}

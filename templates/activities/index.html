@@ -3,9 +3,11 @@
 
 <h2>Classes</h2>
 
+<div class="box">
+
 {% for activity in all_activities %}
 
-<section>
+<section class="activity">
     <h3>{{ activity.name }}</h3>
     {% if activity.active == False %}  
         <p style="color:red">This class is now full</p>
@@ -22,16 +24,13 @@
 
     <a href="/activities/{{ activity.id }}">Details</a><br>
     <a href="/activities/{{ activity.id }}/edit">Edit</a>
-    <!-- add green circle to indicate activity is active, deactivate if full? -->
-    <!-- add symbol to indicate activity is peak/off peak -->
-    <div>
         <form action="/activities/{{ activity.id }}/delete" method="POST">
             <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
         </form>
       
-    </div>
     
 </section>
 
 {% endfor %}
+</div>
 {% endblock %}

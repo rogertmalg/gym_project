@@ -2,8 +2,9 @@
 {% block content %}
 
 <h2>Add a New member</h2>
+<div class= "boxform">
 
-<form action="/members" method="POST">
+<form class="new" action="/members" method="POST">
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name">
@@ -26,5 +27,6 @@
         <input type="submit" value="add">
     </div>
 </form>
+</div>
 
 {% endblock %}
